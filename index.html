@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giáng Sinh Vui Vẻ 🎄</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(#0f2027, #203a43, #2c5364);
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+h1 {
+    color: #ffdd59;
+    margin-top: 20px;
+}
+
+.container {
+    padding: 20px;
+}
+
+.tree {
+    white-space: pre;
+    font-size: 18px;
+    line-height: 1.2;
+    margin: 20px 0;
+}
+
+.box {
+    background: rgba(255,255,255,0.12);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+button {
+    background: #ff4757;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ff6b81;
+}
+
+.footer {
+    margin: 30px 0;
+    font-style: italic;
+    color: #ffdcdc;
+}
+
+/* Tuyết rơi */
+.snow {
+    position: fixed;
+    top: -10px;
+    color: white;
+    font-size: 14px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🎄 Merry Christmas 🎄</h1>
+
+    <div class="tree">
+          *
+         ***
+        *****
+       *******
+      *********
+          |||
+    </div>
+
+    <div class="box">
+        <h2>Gửi <span style="color:#ffb3c6;">BẠN THÂN</span> ❤️</h2>
+        <p>
+            Giáng Sinh lại đến rồi 🎅<br><br>
+            Chúc bạn có một mùa Noel thật ấm áp,<br>
+            luôn vui vẻ, mạnh khỏe và hạnh phúc.<br><br>
+            Cảm ơn vì đã luôn ở bên mình,<br>
+            cùng cười, cùng buồn và tạo nên<br>
+            rất nhiều kỷ niệm đáng nhớ 💖
+        </p>
+    </div>
+
+    <button onclick="batNgo()">🎁 Bấm vào đây nè</button>
+
+    <div id="surprise" class="box" style="display:none;">
+        🎄 Bạn là một người bạn TUYỆT VỜI! 🎄<br><br>
+        Mong rằng sang năm mới,<br>
+        mọi điều tốt đẹp nhất sẽ đến với bạn ✨
+    </div>
+
+    <div class="footer">
+        🎁 From your best friend – with love ❤️
+    </div>
+</div>
+
+<!-- Nhạc Noel -->
+<audio id="music" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/12/06/audio_1c3b0bb0c1.mp3" type="audio/mpeg">
+</audio>
+
+<button style="position:fixed;bottom:20px;right:20px;" onclick="toggleMusic()">🎶</button>
+
+<script>
+// Bất ngờ
+function batNgo() {
+    document.getElementById("surprise").style.display = "block";
+}
+
+// Nhạc
+let playing = false;
+function toggleMusic() {
+    let music = document.getElementById("music");
+    if (!playing) {
+        music.play();
+        playing = true;
+    } else {
+        music.pause();
+        playing = false;
+    }
+}
+
+// Tuyết rơi
+function taoTuyet() {
+    let snow = document.createElement("div");
+    snow.className = "snow";
+    snow.innerHTML = "❄";
+    snow.style.left = Math.random() * window.innerWidth + "px";
+    snow.style.animationDuration = (3 + Math.random() * 5) + "s";
+    document.body.appendChild(snow);
+
+    setTimeout(() => {
+        snow.remove();
+    }, 8000);
+}
+
+setInterval(taoTuyet, 300);
+</script>
+
+</body>
+</html>
